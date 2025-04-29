@@ -1,3 +1,4 @@
+import logo from "data-base64:~images/logo.png"
 import React from "react"
 
 import { Button } from "~components/ui/button"
@@ -7,9 +8,10 @@ import { Label } from "../ui/label"
 
 export default function Login() {
   return (
-    <div className="w-full h-full flex justify-center items-center flex-col text-lg px-6 space-y-6 -mt-32">
-      <h1 className="text-2xl font-semibold">
-        Welcome to <span className="italic font-bold">Gitpaper</span>
+    <div className="w-full h-full flex justify-center items-center flex-col text-lg px-6 space-y-6">
+      <h1 className="text-2xl font-semibold flex justify-center items-center">
+        Welcome to <span className="italic font-bold ml-1">Gitpaper</span>
+        <img src={logo} alt="gitpaper-logo" className="ml-1 size-10" />
       </h1>
       <div className="grid w-full max-w-sm items-center gap-1.5 mt-6">
         <Label htmlFor="username">Username</Label>
