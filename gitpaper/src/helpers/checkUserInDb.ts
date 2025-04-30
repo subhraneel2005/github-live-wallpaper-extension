@@ -19,6 +19,7 @@ export async function checkUser({ username, password }: UserProps) {
     console.log("Token:", token)
 
     localStorage.setItem("token", token)
+    localStorage.setItem("userId", user?.id)
   } catch (error) {
     alert("Login failed")
     console.log(error, "Login Error")

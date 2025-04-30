@@ -3,6 +3,7 @@ import { Loader2 } from "lucide-react"
 import React, { useState } from "react"
 
 import { Button } from "~components/ui/button"
+import Wallpapers from "~components/Wallpapers"
 import { checkUser } from "~helpers/checkUserInDb"
 import type { UserProps } from "~types/UserProps"
 
@@ -28,16 +29,14 @@ export default function Login() {
     }
   }
 
+  const token = localStorage.getItem("token")
+
+  if (token) {
+    return <Wallpapers />
+  }
+
   if (loggedin) {
-    return (
-      <div className="w-full h-full flex justify-center items-center flex-col text-lg px-6 space-y-6">
-        <h1 className="text-2xl font-semibold flex justify-center items-center">
-          Welcome to <span className="italic font-bold ml-1">Gitpaper</span>
-          <img src={logo} alt="gitpaper-logo" className="ml-1 size-10" />
-        </h1>
-        <p className="text-zinc-600">This is a welcome page 👋</p>
-      </div>
-    )
+    return <Wallpapers />
   }
   return (
     <div className="w-full h-full flex justify-center items-center flex-col text-lg px-6 space-y-6">
