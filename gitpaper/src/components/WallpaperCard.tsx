@@ -1,32 +1,26 @@
 import { useEffect, useState } from "react"
 
 import type { WallpaperCardProps } from "~types/WallpaperProps"
-
 import { Button } from "./ui/button"
-import { Card, CardContent, CardFooter } from "./ui/card"
 
 export default function WallpaperCard({
   backgroundImageLink,
   bentoLink
 }: WallpaperCardProps) {
-  const [isExtensionContext, setIsExtensionContext] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <Card>
-      <CardContent className="flex justify-center items-center">
-        <div
-          className="bg-cover bg-center flex justify-center items-center w-[80%] p-8 rounded-xl"
-          style={{ backgroundImage: `url(${backgroundImageLink})` }}>
-          <div className="h-full w-full overflow-hidden">
-            <img src={bentoLink} alt="Inner" className="w-full object-cover" />
-          </div>
+    <div className="relative w-full h-[200px] flex justify-center items-center flex-col rounded-xl bg-cover bg-center overflow-hidden"
+      style={{ backgroundImage: `url(${backgroundImageLink})` }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
+      <img src={bentoLink} alt="" className="w-2/3 object-cover" />
+
+      {isHovered && (
+        <div className="absolute top-0 left-0 z-10 w-full h-full flex justify-center items-center bg-black/50">
+          <Button>Set Wallpaper</Button>
         </div>
-      </CardContent>
-      <CardFooter className="flex justify-center items-center">
-        <Button disabled={!isExtensionContext}>
-          {isExtensionContext ? "Set wallpaper" : "Extension API not available"}
-        </Button>
-      </CardFooter>
-    </Card>
+      )}
+    </div>
   )
 }
