@@ -40,6 +40,12 @@
     "host_permissions": [
       "https://*/*",
       "http://*/*"
+<<<<<<< HEAD
+=======
+    ],
+    "permissions": [
+      "storage"
+>>>>>>> 62034a6f6655e42b80fc41a749c05ff067f37abe
     ]
   }
 }

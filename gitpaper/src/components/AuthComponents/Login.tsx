@@ -14,13 +14,11 @@ export default function Login() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
-  const [loggedin, setLoggedIn] = useState(false)
 
   const handleSubmit = async ({ username, password }: UserProps) => {
     setLoading(true)
     try {
       await checkUser({ username, password })
-      setLoggedIn(true)
     } catch (error) {
       alert("Error in login component")
       console.log(error)
@@ -35,9 +33,6 @@ export default function Login() {
     return <Wallpapers />
   }
 
-  if (loggedin) {
-    return <Wallpapers />
-  }
   return (
     <div className="w-full h-full flex justify-center items-center flex-col text-lg px-6 space-y-6">
       <h1 className="text-2xl font-semibold flex justify-center items-center">

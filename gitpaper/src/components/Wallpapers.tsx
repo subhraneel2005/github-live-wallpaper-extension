@@ -35,13 +35,13 @@ export default function Wallpapers() {
   }
 
   return (
-    <div className="w-full h-full flex justify-center items-center flex-col text-lg px-6 space-y-6">
-      <h1 className="text-2xl font-semibold flex justify-center items-center">
-        <span className="italic font-bold ml-1">Your Wallpapers</span>
+    <div className="w-full h-full flex items-center flex-col text-lg px-6 space-y-6">
+      <h1 className="text-2xl font-semibold flex justify-center items-center mt-6">
+        <span className="font-bold ml-1">Your Wallpapers</span>
         <img src={logo} alt="gitpaper-logo" className="ml-1 size-10" />
       </h1>
 
-      <div className="w-full flex flex-col justify-center items-center space-y-4 mt-6">
+      <div className="w-full grid grid-cols-2 gap-4 justify-center items-center mt-6">
         {wallpapers?.map((w, index) => (
           <WallpaperCard
             key={index}
