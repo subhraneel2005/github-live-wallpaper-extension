@@ -9,8 +9,6 @@ export default function WallpaperCard({
   backgroundImageLink,
   bentoLink
 }: WallpaperCardProps) {
-  const [isExtensionContext, setIsExtensionContext] = useState(false)
-
   return (
     <Card>
       <CardContent className="flex justify-center items-center">
@@ -23,9 +21,7 @@ export default function WallpaperCard({
         </div>
       </CardContent>
       <CardFooter className="flex justify-center items-center">
-        <Button disabled={!isExtensionContext}>
-          {isExtensionContext ? "Set wallpaper" : "Extension API not available"}
-        </Button>
+        <Button>Set wallpaper</Button>
       </CardFooter>
     </Card>
   )
